@@ -1,3 +1,9 @@
+
+---
+
+# 5. `openapi.yaml`
+
+```yaml
 openapi: 3.0.3
 info:
   title: MiniBlog API
@@ -5,21 +11,20 @@ info:
   description: |
     API REST para gestionar authors y posts.
 
-    Esta API fue desarrollada con Node.js, Express y PostgreSQL.
-    Incluye operaciones CRUD para authors y posts, validaciones básicas,
-    documentación Swagger/OpenAPI y manejo de errores comunes.
+    Incluye operaciones CRUD, validaciones básicas, documentación Swagger/OpenAPI
+    y manejo de errores comunes.
 
     Errores frecuentes documentados:
     - 400: faltan campos obligatorios
     - 404: recurso no encontrado
     - 500: error interno o de base de datos
-    - posts con author_id inexistente pueden generar error de foreign key
+    - error de foreign key cuando author_id no existe
 
 servers:
   - url: http://localhost:3000
     description: Servidor local
   - url: https://proyectom2juanpabloarnez-production.up.railway.app
-    description: Servidor en Railway
+    description: Servidor desplegado en Railway
 
 tags:
   - name: Authors
@@ -31,7 +36,6 @@ paths:
   /:
     get:
       summary: Verificar estado de la API
-      description: Endpoint base para comprobar que la API está corriendo.
       responses:
         '200':
           description: API funcionando
@@ -49,7 +53,6 @@ paths:
       tags:
         - Authors
       summary: Obtener todos los authors
-      description: Devuelve una lista de authors registrados.
       responses:
         '200':
           description: Lista de authors
@@ -64,29 +67,12 @@ paths:
       tags:
         - Authors
       summary: Crear un author
-      description: |
-        Crea un nuevo author.
-
-        Validaciones:
-        - name obligatorio
-        - email obligatorio
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AuthorInput'
-            examples:
-              ejemploValido:
-                summary: Author válido
-                value:
-                  name: Juan Pablo
-                  email: juan@mail.com
-                  bio: Autor de prueba
-              ejemploInvalido:
-                summary: Body incompleto
-                value:
-                  bio: Sin nombre ni email
       responses:
         '201':
           description: Author creado correctamente
@@ -101,7 +87,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
               examples:
-                faltanCampos:
+                ejemplo:
                   value:
                     error: name y email son obligatorios
         '500':
@@ -132,21 +118,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
               examples:
-                noEncontrado:
+                ejemplo:
                   value:
                     error: Author no encontrado
-        '500':
-          description: Error interno
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
 
     put:
       tags:
         - Authors
       summary: Actualizar author por ID
-      description: Actualiza name, email y bio de un author existente.
       parameters:
         - $ref: '#/components/parameters/IdParam'
       requestBody:
@@ -155,15 +134,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AuthorInput'
-            examples:
-              ejemploValido:
-                value:
-                  name: Juan Pablo Updated
-                  email: juan.updated@mail.com
-                  bio: Bio actualizada
-              ejemploInvalido:
-                value:
-                  name: ""
       responses:
         '200':
           description: Author actualizado correctamente
@@ -177,22 +147,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                faltanCampos:
-                  value:
-                    error: name y email son obligatorios
         '404':
           description: Author no encontrado
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                noEncontrado:
-                  value:
-                    error: Author no encontrado
-        '500':
-          description: Error interno o error de base de datos
           content:
             application/json:
               schema:
@@ -202,7 +158,6 @@ paths:
       tags:
         - Authors
       summary: Eliminar author por ID
-      description: Elimina un author. Si existen posts relacionados y la FK está configurada con cascade, también se eliminan.
       parameters:
         - $ref: '#/components/parameters/IdParam'
       responses:
@@ -214,23 +169,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                noEncontrado:
-                  value:
-                    error: Author no encontrado
-        '500':
-          description: Error interno o de base de datos
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
 
   /posts:
     get:
       tags:
         - Posts
       summary: Obtener todos los posts
-      description: Devuelve la lista completa de posts.
       responses:
         '200':
           description: Lista de posts
@@ -255,24 +199,13 @@ paths:
         - content obligatorio
         - author_id obligatorio
 
-        Posibles problemas detectados durante el desarrollo:
-        - si author_id no existe, PostgreSQL puede devolver error de foreign key
+        Si author_id no existe, PostgreSQL puede devolver error de foreign key.
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/PostInput'
-            examples:
-              ejemploValido:
-                value:
-                  title: Mi primer post
-                  content: Este es el contenido del post
-                  author_id: 1
-                  published: true
-              ejemploInvalido:
-                value:
-                  title: Sin contenido
       responses:
         '201':
           description: Post creado correctamente
@@ -287,19 +220,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
               examples:
-                faltanCampos:
+                ejemplo:
                   value:
                     error: faltan campos
         '500':
-          description: Error interno o error de foreign key / base de datos
+          description: Error interno, de base de datos o foreign key
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                foreignKey:
-                  value:
-                    error: insert or update on table "posts" violates foreign key constraint
 
   /posts/{id}:
     get:
@@ -322,27 +251,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
               examples:
-                noEncontrado:
+                ejemplo:
                   value:
                     error: Post no encontrado
-        '500':
-          description: Error interno
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
 
     put:
       tags:
         - Posts
       summary: Actualizar post por ID
-      description: |
-        Actualiza un post existente.
-
-        Posibles errores que se documentan porque aparecieron durante el desarrollo:
-        - 400 si faltan campos
-        - 404 si el post no existe
-        - 500 si updatePost no estaba implementado o hay error SQL
       parameters:
         - $ref: '#/components/parameters/IdParam'
       requestBody:
@@ -351,13 +267,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PostInput'
-            examples:
-              ejemploValido:
-                value:
-                  title: Post actualizado
-                  content: Contenido actualizado
-                  author_id: 1
-                  published: false
       responses:
         '200':
           description: Post actualizado correctamente
@@ -371,22 +280,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                faltanCampos:
-                  value:
-                    error: faltan campos
         '404':
           description: Post no encontrado
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                noEncontrado:
-                  value:
-                    error: Post no encontrado
         '500':
-          description: Error interno o error de base de datos
+          description: Error interno o de base de datos
           content:
             application/json:
               schema:
@@ -407,30 +308,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                noEncontrado:
-                  value:
-                    error: Post no encontrado
-        '500':
-          description: Error interno o error de base de datos
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
 
   /posts/author/{authorId}:
     get:
       tags:
         - Posts
       summary: Obtener posts por author
-      description: |
-        Devuelve todos los posts de un author específico.
-        En este proyecto se utilizó JOIN para enriquecer la respuesta con datos del author.
+      description: Devuelve los posts de un author usando JOIN.
       parameters:
         - name: authorId
           in: path
           required: true
-          description: ID del author
           schema:
             type: integer
             example: 1
@@ -450,7 +338,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
         '500':
-          description: Error interno o error en JOIN / base de datos
+          description: Error interno o de base de datos
           content:
             application/json:
               schema:
@@ -462,7 +350,6 @@ components:
       name: id
       in: path
       required: true
-      description: ID numérico del recurso
       schema:
         type: integer
         example: 1

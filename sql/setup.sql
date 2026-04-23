@@ -1,0 +1,16 @@
+CREATE TABLE authors (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE,
+  bio TEXT,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  title TEXT NOT NULL,
+  content TEXT NOT NULL,
+  author_id INTEGER NOT NULL REFERENCES authors(id) ON DELETE CASCADE,
+  published BOOLEAN DEFAULT false,
+  created_at TIMESTAMP DEFAULT NOW()
+);

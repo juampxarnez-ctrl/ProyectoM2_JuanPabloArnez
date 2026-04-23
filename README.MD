@@ -1,6 +1,9 @@
 # 📌 MiniBlog API
 
-API REST para la gestión de authors y posts, desarrollada con Node.js, Express y PostgreSQL. Permite realizar operaciones CRUD completas, filtrado por author y documentación interactiva mediante Swagger.
+API REST desarrollada con **Node.js**, **Express** y **PostgreSQL** para gestionar **authors** y **posts**.
+
+El proyecto permite realizar operaciones CRUD completas sobre ambas entidades, documentar la API con Swagger/OpenAPI, ejecutar tests automatizados y desplegar la aplicación en Railway.
+
 
 ---
 
@@ -40,6 +43,7 @@ Crear archivo `.env` en la raíz:
 
 ```env
 DB_URL=postgresql://usuario:password@localhost:5432/miniblog
+PORT=3000
 ```
 
 ---
@@ -75,12 +79,31 @@ http://localhost:3000/api-docs
 ```
 
 ---
-### 🌐 Deploy
+### 🌐 Deploy en Railway
 
-## Aplicación desplegada en Railway:
+# Aplicación desplegada en Railway:
 
+* API pública: https://proyectom2juanpabloarnez-production.up.railway.app
+* Swagger público: https://proyectom2juanpabloarnez-production.up.railway.app/api-docs
+
+## Variables de entorno en Railway
+
+* En el servicio web se configuró:
+
+- DB_URL=${{Postgres.DATABASE_URL}}
+
+## Internal URL
+
+* La base de datos utiliza la URL interna que Railway provee automáticamente a través de:
+
+- ${{Postgres.DATABASE_URL}}
+
+## Public URL
 * API: https://proyectom2juanpabloarnez-production.up.railway.app
 * Swagger: https://proyectom2juanpabloarnez-production.up.railway.app/api-docs
+* Observación importante
+
+- La base PostgreSQL en Railway se crea vacía, por lo que fue necesario ejecutar manualmente sql/setup.sql y sql/seed.sql sobre la base de producción para crear las tablas y cargar datos iniciales.
 
 ## 📌 Endpoints
 
@@ -120,6 +143,35 @@ http://localhost:3000/api-docs
   * `500 Internal Server Error`
 
 ---
+## 📚 Proceso de desarrollo y aplicación de las lectures
+
+El proyecto fue desarrollado aplicando progresivamente los contenidos trabajados en las lectures del módulo backend.
+
+### Etapas del proceso
+
+1. Configuración inicial del servidor con Express  
+2. Organización del proyecto en rutas, servicios y manejo de errores  
+3. Modelado de base de datos (`authors` y `posts`)  
+4. Conexión a PostgreSQL utilizando `pg`  
+5. Implementación de CRUD completo  
+6. Validaciones y manejo de errores  
+7. Implementación de tests con Jest y Supertest  
+8. Documentación con Swagger/OpenAPI  
+9. Deploy en Railway  
+
+### Dificultades encontradas
+
+- errores al conectar rutas en Express  
+- diferencias entre CommonJS y ES Modules  
+- validaciones incorrectas en requests  
+- errores por tablas faltantes en PostgreSQL  
+- conflictos entre `DB_URL` y `DATABASE_URL`  
+- problemas con rutas dinámicas (`/posts/:id` vs `/posts/author/:authorId`)  
+- configuración de tests y cierre de conexiones  
+- configuración de Swagger (`openapi.yaml`)  
+- creación manual de tablas en Railway tras el deploy  
+
+--- 
 
 ## 🧠 Uso de Inteligencia Artificial
 
