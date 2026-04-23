@@ -182,21 +182,6 @@ El proyecto fue desarrollado aplicando progresivamente los contenidos trabajados
 - configuración de Swagger (`openapi.yaml`)  
 - creación manual de tablas en Railway tras el deploy  
 
---- 
-
-## 🧠 Uso de Inteligencia Artificial
-
-Se utilizó IA como apoyo para:
-
-* Debugging de errores
-* Configuración de Swagger
-* Implementación de tests
-* Mejores prácticas en Express
-
-Todas las soluciones fueron comprendidas y aplicadas manualmente.
-
----
-
 ## 📁 Estructura del proyecto
 
 ```bash
@@ -226,7 +211,7 @@ ProyectoM2_JuanPabloArnez/
 │
 ├── tests/
 │ └── authors.test.js
-│
+├── DocumentacionIA.MD
 ├── openapi.yaml
 ├── package.json
 ├── package-lock.json
