@@ -102,14 +102,16 @@ http://localhost:3000/api-docs
 
 * En el servicio web se configuró:
 
-```DB_URL=${{Postgres.DATABASE_URL}}
+```
+DB_URL=${{Postgres.DATABASE_URL}}
 ```
 
 ## Internal URL
 
 * La base de datos utiliza la URL interna que Railway provee automáticamente a través de:
 
-```${{Postgres.DATABASE_URL}}
+```
+${{Postgres.DATABASE_URL}}
 ```
 
 ## Public URL
