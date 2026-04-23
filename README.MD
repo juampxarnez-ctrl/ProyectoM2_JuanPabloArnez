@@ -39,7 +39,7 @@ npm install
 Crear archivo `.env` en la raíz:
 
 ```env
-DB_URL=postgresql://usuario:password@localhost:5432/miniblog
+DB_URL=postgresql://postgres:1324@localhost:5432/miniblog
 ```
 
 ---
