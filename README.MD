@@ -55,10 +55,9 @@ Luego ejecutar los scripts SQL incluidos en el proyecto:
 
 ```bash
 psql -U postgres -d miniblog -f sql/setup.sql
-```
-```psql -U postgres -d miniblog -f sql/seed.sql
-```
 
+psql -U postgres -d miniblog -f sql/seed.sql
+```
 ---
 
 ## ▶️ Ejecutar proyecto
