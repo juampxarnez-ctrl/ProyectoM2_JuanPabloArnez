@@ -27,21 +27,7 @@ tags:
     description: Operaciones CRUD sobre posts
 
 paths:
-  /:
-    get:
-      summary: Verificar estado de la API
-      responses:
-        '200':
-          description: API funcionando
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  ok:
-                    type: boolean
-                    example: true
-
+  
   /authors:
     get:
       tags:
