@@ -19,7 +19,7 @@ API REST desarrollada con Node.js, Express y PostgreSQL para gestionar **authors
 ### 1. Clonar repositorio
 
 ```bash
-git clone https://github.com/TU-USUARIO/mini-blog-api.git
+git https://github.com/juampxarnez-ctrl/ProyectoM2_JuanPabloArnez.git
 cd mini-blog-api
 ```
 
