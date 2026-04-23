@@ -93,11 +93,8 @@ El archivo openapi.yaml no se encontraba en la ubicación esperada o estaba mal 
 
 Solucion que se llevo acabo, se consulto a la ia el problema textual de porque no reconocia el archivo OpenApi, devolucion que recibi fue que el nombre no era el correcto, por ende no lo reconocia y tampoco se reflejaba en la web.
 
-Se corriogio el nombro y el resultado fue:
+Se corriogio el nombre y el resultado fue:
 ![input](./docs/input-swagger1.png)
-
-
-
 
 ---
 
