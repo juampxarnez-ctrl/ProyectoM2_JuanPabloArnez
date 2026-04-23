@@ -35,13 +35,4 @@ La solución fue adaptar el proyecto a CommonJS.
 
 ![input](./docs/inputjest-1.png)
 
-
-
-
-
-
-
-
-
-
 ---
