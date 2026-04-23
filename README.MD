@@ -170,18 +170,6 @@ El proyecto fue desarrollado aplicando progresivamente los contenidos trabajados
 8. Documentación con Swagger/OpenAPI  
 9. Deploy en Railway  
 
-### Dificultades encontradas
-
-- errores al conectar rutas en Express  
-- diferencias entre CommonJS y ES Modules  
-- validaciones incorrectas en requests  
-- errores por tablas faltantes en PostgreSQL  
-- conflictos entre `DB_URL` y `DATABASE_URL`  
-- problemas con rutas dinámicas (`/posts/:id` vs `/posts/author/:authorId`)  
-- configuración de tests y cierre de conexiones  
-- configuración de Swagger (`openapi.yaml`)  
-- creación manual de tablas en Railway tras el deploy  
-
 ## 📁 Estructura del proyecto
 
 ```bash
