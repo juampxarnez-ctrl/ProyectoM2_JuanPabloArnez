@@ -15,10 +15,12 @@ Se presentó el siguiente error al ejecutar los tests:
 ![input](./docs/jest-1.png.png)
 
 Se intentó utilizar sintaxis ES Modules (`import`) en el archivo de test:
+
 ```js
 import request from 'supertest';
 import app from '../src/server';
 ```
+
 Al ejecutar los test con:
 
 npm test
@@ -44,7 +46,8 @@ Esto ocurrió porque las tablas `authors` y `posts` no existían en PostgreSQL.
 
 Este error fue mio al precipitarme y hacer todo de corrido sin tener en cuenta que para probar en postman debia crear tablas, por ende recurri a mis archivos seed.sql y setup.sql con el comando psql
 
-```-U postgres -d miniblog -f sql/setup.sql
+```
+-U postgres -d miniblog -f sql/setup.sql
 -U postgres -d miniblog -f sql/seed.sql
 ```
 Teniendo como exito:
