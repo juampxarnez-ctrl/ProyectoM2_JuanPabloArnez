@@ -127,10 +127,14 @@ Todas las soluciones fueron comprendidas y aplicadas manualmente.
 
 ```bash
 src/
+ ├── controllers/
+ ├── db/
+ ├── errors/
  ├── routes/
  ├── services/
- ├── db.js
+ ├── validators/
  ├── app.js
+ ├── db.js
  └── server.js
 
 tests/
