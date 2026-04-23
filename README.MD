@@ -168,33 +168,39 @@ El proyecto fue desarrollado aplicando progresivamente los contenidos trabajados
 
 ```bash
 ProyectoM2_JuanPabloArnez/
-├── sql/
-│   ├── setup.sql
-│   └── seed.sql
-├── src/
-│ ├── controllers/
-│ │ └── usersController.js
-│ ├── db/
-│ │ └── index.js
-│ ├── errors/
-│ │ ├── errorHandler.js
-│ │ └── errors.js
-│ ├── routes/
-│ │ ├── authors.routes.js
-│ │ └── posts.routes.js
-│ ├── services/
-│ │ ├── authors.service.js
-│ │ └── posts.service.js
-│ ├── validators/
-│ │ └── userValidators.js
-│ ├── app.js
-│ ├── db.js
-│ └── server.js
+├── docs/                     # Documentación del uso de IA y capturas
+│   └── ...
 │
-├── tests/
-│ └── authors.test.js
-├── DocumentacionIA.MD
-├── openapi.yaml
+├── sql/                      # Scripts de base de datos
+│   ├── setup.sql             # Creación de tablas
+│   └── seed.sql              # Datos iniciales
+│
+├── src/                      # Código fuente
+│   ├── db/
+│   │   └── index.js          # Conexión a PostgreSQL
+│   │
+│   ├── errors/
+│   │   └── errorHandler.js   # Middleware de manejo de errores
+│   │
+│   ├── routes/
+│   │   ├── authors.routes.js # Rutas de authors
+│   │   └── posts.routes.js   # Rutas de posts
+│   │
+│   ├── services/
+│   │   ├── authors.service.js 
+│   │   └── posts.service.js             
+│   │
+│   ├── app.js                # Configuración de Express
+│   ├── db.js                 # Configuración DB (pool)
+│   └── server.js             # Punto de entrada del servidor
+│
+├── tests/                    # Tests automatizados
+│   └── authors.test.js
+│
+├── .env.example              # Variables de entorno de ejemplo
+├── .gitignore                # Archivos ignorados por Git
+├── DocumentacionIA.MD        # Registro del uso de IA
+├── openapi.yaml              # Documentación OpenAPI (Swagger)
 ├── package.json
 ├── package-lock.json
 └── README.md
