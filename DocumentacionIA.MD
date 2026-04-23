@@ -56,7 +56,7 @@ Teniendo como exito:
 
 Luego de restaurar la base de datos, la API volvió a responder correctamente.
 
-🔴 Problema 3: Error de conexión a la base en Railway
+## 🔴 Problema 3: Error de conexión a la base en Railway
 
 Durante el deploy en Railway se presentó un error de conexión a PostgreSQL debido a una mala configuración de la variable de entorno `DB_URL`.
 ![output](./docs/Output-deploy1.png)
