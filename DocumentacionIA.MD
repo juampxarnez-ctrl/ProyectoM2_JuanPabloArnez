@@ -6,94 +6,32 @@ El uso de IA fue complementario al aprendizaje, permitiendo aplicar de forma pr�
 
 ---
 
-## -Áreas donde se utilizó IA
+## -Problemas donde se utilizo IA:
 
-### 1. Configuración inicial del proyecto
+## 🔴 Problema 1: Error con Jest al usar ES Modules
 
-Se utilizó IA para:
+Se presentó el siguiente error al ejecutar los tests:
+[input](./docs/input%201%20Error%20con%20Jest%20(ES%20Modules).png)
+Se intentó utilizar sintaxis ES Modules (`import`) en el archivo de test:
+```js
+import request from 'supertest';
+import app from '../src/server';
 
-- estructurar el proyecto con Express
-- definir la separación en rutas, servicios y manejo de errores
-- configurar el servidor base (`app.js`, `server.js`)
+Al ejecutar los test con:
 
----
+npm test
 
-### 2. Conexión con PostgreSQL
+se obtuvo el siguiente error:
 
-Se utilizó IA para:
-
-- configurar la conexión con `pg`
-- definir el uso de `DB_URL` en lugar de configuraciones separadas
-- resolver errores de conexión a la base de datos
-
----
-
-### 3. Implementación de endpoints (CRUD)
-
-IA ayudó en:
-
-- estructuración de endpoints REST
-- manejo correcto de métodos HTTP (`GET`, `POST`, `PUT`, `DELETE`)
-- separación de lógica en services
+[](./docs/input%202%20Error%20con%20Jest%20(ES%20Modules).png)
+[](./docs/input%203%20Error%20con%20Jest%20(ES%20Modules).png)
+SyntaxError: Cannot use import statement outside a module
 
 ---
 
-### 4. Validaciones y manejo de errores
+Esto ocurrió debido a una incompatibilidad entre ES Modules y la configuración de Jest.
+La solución fue adaptar el proyecto a CommonJS.
 
-Se utilizó IA para:
-
-- implementar validaciones de campos obligatorios
-- definir respuestas HTTP correctas (`400`, `404`, `500`)
-- crear un middleware de manejo de errores (`errorHandler`)
+[Output](./docs/Output-Error%20con%20Jest%20(ES%20Modules)1.png)
 
 ---
-
-## -Principales dificultades donde se utilizó IA
-
-### 🔴 1. Conflicto de rutas en Express
-
-Problema:
-- La ruta `/posts/:id` interceptaba `/posts/author/:authorId`
-
-Solución:
-- Se reordenaron las rutas para que `/posts/author/:authorId` esté antes
-
----
-
-### 🔴 2. Error al usar Jest con ES Modules
-
-Problema:
-- Error: `Cannot use import statement outside a module`
-
-Solución:
-- Se decidió usar CommonJS (`require`) o cambiar a Vitest temporalmente
-- Finalmente se adaptó Jest correctamente al proyecto
-
----
-
-### 🔴 3. Error 500 en tests (POST /authors)
-
-Problema:
-- El test esperaba `201` pero devolvía `500`
-
-Causa:
-- Error en el body o en la base de datos
-
-Solución:
-- Corrección del formato del request
-- revisión del service
-
----
-
-### 🔴 4. Problemas con variables de entorno en Railway
-
-Problema:
-- Error de conexión a la base (`ENOTFOUND base`)
-
-Causa:
-- Uso incorrecto de la variable `DB_URL`
-
-Solución:
-- Configuración correcta:
-```env
-DB_URL=${{Postgres.DATABASE_URL}}
