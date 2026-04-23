@@ -9,8 +9,11 @@ API REST desarrollada con Node.js, Express y PostgreSQL para gestionar **authors
 * Node.js
 * Express
 * PostgreSQL
-* Swagger (OpenAPI)
-* Jest / Supertest
+* pg
+* dotenv
+* Swagger UI Express + YAMLJS
+* Jest
+* Supertest
 
 ---
 
