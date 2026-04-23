@@ -110,12 +110,6 @@ DB_URL=${{Postgres.DATABASE_URL}}
 ${{Postgres.DATABASE_URL}}
 ```
 
-## Public URL
-* API: https://proyectom2juanpabloarnez-production.up.railway.app
-* Swagger: https://proyectom2juanpabloarnez-production.up.railway.app/api-docs
-* Observación importante:
-La base PostgreSQL en Railway se crea vacía, por lo que fue necesario ejecutar manualmente sql/setup.sql y sql/seed.sql sobre la base de producción para crear las tablas y cargar datos iniciales.
-
 ## 📌 Endpoints
 
 ### 👤 Authors
