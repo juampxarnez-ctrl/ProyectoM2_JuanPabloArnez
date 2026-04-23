@@ -1,0 +1,25 @@
+{
+  "name": "mini-blog-api",
+  "version": "1.0.0",
+  "description": "A simple API for a mini blog application",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node src/server.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.22.1",
+    "pg": "^8.20.0",
+    "postgresql": "^0.0.1",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^1.0.0",
+    "jest": "^30.3.0",
+    "supertest": "^6.3.4",
+    "vitest": "^1.0.0"
+  }
+}

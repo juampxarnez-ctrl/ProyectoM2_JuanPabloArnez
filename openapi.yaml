@@ -1,0 +1,203 @@
+openapi: 3.0.0
+info:
+  title: MiniBlog API
+  version: 1.0.0
+  description: API REST para authors y posts
+
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /authors:
+    get:
+      summary: Obtener todos los authors
+      responses:
+        '200':
+          description: Lista de authors
+    post:
+      summary: Crear un author
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                bio:
+                  type: string
+      responses:
+        '201':
+          description: Author creado
+
+  /authors/{id}:
+    get:
+      summary: Obtener author por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Author encontrado
+        '404':
+          description: Author no encontrado
+
+    put:
+      summary: Actualizar author por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                bio:
+                  type: string
+      responses:
+        '200':
+          description: Author actualizado
+        '404':
+          description: Author no encontrado
+
+    delete:
+      summary: Eliminar author por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Author eliminado
+        '404':
+          description: Author no encontrado
+
+  /posts:
+    get:
+      summary: Obtener todos los posts
+      responses:
+        '200':
+          description: Lista de posts
+    post:
+      summary: Crear un post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - content
+                - author_id
+              properties:
+                title:
+                  type: string
+                content:
+                  type: string
+                author_id:
+                  type: integer
+                published:
+                  type: boolean
+      responses:
+        '201':
+          description: Post creado
+
+  /posts/{id}:
+    get:
+      summary: Obtener post por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Post encontrado
+        '404':
+          description: Post no encontrado
+
+    put:
+      summary: Actualizar post por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - content
+                - author_id
+              properties:
+                title:
+                  type: string
+                content:
+                  type: string
+                author_id:
+                  type: integer
+                published:
+                  type: boolean
+      responses:
+        '200':
+          description: Post actualizado
+        '404':
+          description: Post no encontrado
+
+    delete:
+      summary: Eliminar post por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Post eliminado
+        '404':
+          description: Post no encontrado
+
+  /posts/author/{authorId}:
+    get:
+      summary: Obtener posts por author
+      parameters:
+        - in: path
+          name: authorId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Lista de posts del author
+          
