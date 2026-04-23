@@ -1,4 +1,4 @@
-# 🧠 Documentación del uso de Inteligencia Artificial
+# -Documentación del uso de Inteligencia Artificial
 
 Durante el desarrollo del proyecto MiniBlog API se utilizó inteligencia artificial como herramienta de apoyo para resolver dudas, depurar errores y mejorar la calidad del código.
 
@@ -6,7 +6,7 @@ El uso de IA fue complementario al aprendizaje, permitiendo aplicar de forma pr�
 
 ---
 
-## 📌 Áreas donde se utilizó IA
+## -Áreas donde se utilizó IA
 
 ### 1. Configuración inicial del proyecto
 
@@ -48,7 +48,7 @@ Se utilizó IA para:
 
 ---
 
-## ⚠️ Principales dificultades donde se utilizó IA
+## -Principales dificultades donde se utilizó IA
 
 ### 🔴 1. Conflicto de rutas en Express
 
