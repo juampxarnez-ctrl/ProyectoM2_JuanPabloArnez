@@ -75,6 +75,30 @@ Se logro corregir la variable en Railway utilizando la referencia provista por e
 
 Luego de corregir la variable, la aplicación pudo conectarse correctamente a la base de datos y el deploy quedó funcionando.
 
+## 🔴 Problema 4: Error en Swagger (archivo OpenAPI no encontrado)
+
+Durante la ejecución del proyecto se presentó un error al intentar cargar la documentación Swagger.
+
+En la consola se obtuvo el siguiente mensaje:
+![output](./docs/output-test-run-swagerr1.png)
+```bash
+Error: ENOENT: no such file or directory, open 'openapi.yaml'
+```
+En la web:
+![output](./docs/output-test-run-swagerr1.png)
+
+Causa principal del problema:
+
+El archivo openapi.yaml no se encontraba en la ubicación esperada o estaba mal nombrado, swagger depende de este archivo para generar la documentación, por lo que su ausencia provoca un fallo en la carga.
+
+Solucion que se llevo acabo, se consulto a la ia el problema textual de porque no reconocia el archivo OpenApi, devolucion que recibi fue que el nombre no era el correcto, por ende no lo reconocia y tampoco se reflejaba en la web.
+
+Se corriogio el nombro y el resultado fue:
+![input](./docs/input-swagger1.png)
+
+
+
+
 ---
 
 
