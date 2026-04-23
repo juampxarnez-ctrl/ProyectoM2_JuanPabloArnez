@@ -29,10 +29,19 @@ se obtuvo el siguiente error:
 ![](./docs/jest-3.png.png)
 
 SyntaxError: Cannot use import statement outside a module
-                            
+
 Esto ocurrió debido a una incompatibilidad entre ES Modules y la configuración de Jest.
 La solución fue adaptar el proyecto a CommonJS.
 
 ![output](./docs/inputjest-1.png)
+
+
+
+
+
+
+
+
+
 
 ---
