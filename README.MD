@@ -45,6 +45,19 @@ Crear archivo `.env` en la raíz:
 DB_URL=postgresql://usuario:password@localhost:5432/miniblog
 PORT=3000
 ```
+## 🗄️ Base de datos
+
+Crear una base de datos llamada `miniblog` en PostgreSQL.
+
+Luego ejecutar los scripts SQL incluidos en el proyecto:
+
+### Crear tablas
+
+```bash
+psql -U postgres -d miniblog -f sql/setup.sql
+```
+```psql -U postgres -d miniblog -f sql/seed.sql
+```
 
 ---
 
@@ -90,20 +103,21 @@ http://localhost:3000/api-docs
 
 * En el servicio web se configuró:
 
-- DB_URL=${{Postgres.DATABASE_URL}}
+```DB_URL=${{Postgres.DATABASE_URL}}
+```
 
 ## Internal URL
 
 * La base de datos utiliza la URL interna que Railway provee automáticamente a través de:
 
-- ${{Postgres.DATABASE_URL}}
+```${{Postgres.DATABASE_URL}}
+```
 
 ## Public URL
 * API: https://proyectom2juanpabloarnez-production.up.railway.app
 * Swagger: https://proyectom2juanpabloarnez-production.up.railway.app/api-docs
-* Observación importante
-
-- La base PostgreSQL en Railway se crea vacía, por lo que fue necesario ejecutar manualmente sql/setup.sql y sql/seed.sql sobre la base de producción para crear las tablas y cargar datos iniciales.
+* Observación importante:
+La base PostgreSQL en Railway se crea vacía, por lo que fue necesario ejecutar manualmente sql/setup.sql y sql/seed.sql sobre la base de producción para crear las tablas y cargar datos iniciales.
 
 ## 📌 Endpoints
 
@@ -190,6 +204,9 @@ Todas las soluciones fueron comprendidas y aplicadas manualmente.
 
 ```bash
 ProyectoM2_JuanPabloArnez/
+├── sql/
+│   ├── setup.sql
+│   └── seed.sql
 ├── src/
 │ ├── controllers/
 │ │ └── usersController.js
