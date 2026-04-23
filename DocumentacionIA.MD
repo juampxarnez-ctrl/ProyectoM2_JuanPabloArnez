@@ -11,7 +11,7 @@ El uso de IA fue complementario al aprendizaje, permitiendo aplicar de forma pr�
 ## 🔴 Problema 1: Error con Jest al usar ES Modules
 
 Se presentó el siguiente error al ejecutar los tests:
-[input](./docs/input%201%20Error%20con%20Jest%20(ES%20Modules).png)
+![input](./docs/input1ErrorconJest.png).png)
 Se intentó utilizar sintaxis ES Modules (`import`) en el archivo de test:
 ```js
 import request from 'supertest';
