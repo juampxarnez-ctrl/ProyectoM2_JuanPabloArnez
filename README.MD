@@ -160,4 +160,4 @@ mini-blog-api/
 
 ## 👨‍💻 Autor
 
-Juan Pablo
+Arnez Juan Pablo
