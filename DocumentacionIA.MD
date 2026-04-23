@@ -25,8 +25,8 @@ npm test
 
 se obtuvo el siguiente error:
 
-![input](./docs/jest-2.png)
-![input](./docs/jest-3.png.png)
+![](./docs/jest-2.png)
+![](./docs/jest-3.png.png)
 
 SyntaxError: Cannot use import statement outside a module
 
@@ -35,6 +35,6 @@ SyntaxError: Cannot use import statement outside a module
 Esto ocurrió debido a una incompatibilidad entre ES Modules y la configuración de Jest.
 La solución fue adaptar el proyecto a CommonJS.
 
-![output](./docs/inputjest-1.png)
+![](./docs/inputjest-1.png)
 
 ---
