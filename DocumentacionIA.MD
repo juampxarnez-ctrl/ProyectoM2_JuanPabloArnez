@@ -11,7 +11,9 @@ El uso de IA fue complementario al aprendizaje, permitiendo aplicar de forma pr�
 ## 🔴 Problema 1: Error con Jest al usar ES Modules
 
 Se presentó el siguiente error al ejecutar los tests:
+
 ![input](./docs/input1ErrorconJest.png)
+
 Se intentó utilizar sintaxis ES Modules (`import`) en el archivo de test:
 ```js
 import request from 'supertest';
@@ -22,9 +24,9 @@ Al ejecutar los test con:
 npm test
 
 se obtuvo el siguiente error:
+![input](./docs/input1ErrorconJest.png)
+![input](./docs/input3ErrorconJest.png)
 
-![](./docs/input-2-Error-con-Jest.png)
-![](./docs/input-3-Error-con-Jest.png)
 SyntaxError: Cannot use import statement outside a module
 
 ---
@@ -32,6 +34,6 @@ SyntaxError: Cannot use import statement outside a module
 Esto ocurrió debido a una incompatibilidad entre ES Modules y la configuración de Jest.
 La solución fue adaptar el proyecto a CommonJS.
 
-![Output](./docs/Output-Error-con-Jest.png)
+![output](./docs/OutputErrorconJest.png)
 
 ---
