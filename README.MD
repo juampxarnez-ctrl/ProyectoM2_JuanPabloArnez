@@ -1,6 +1,6 @@
 # 📌 MiniBlog API
 
-API REST desarrollada con **Node.js**, **Express** y **PostgreSQL** para gestionar **authors** y **posts**.
+API REST para la gestión de authors y posts, desarrollada con Node.js, Express y PostgreSQL. Permite realizar operaciones CRUD completas, filtrado por author y documentación interactiva mediante Swagger.
 
 ---
 
@@ -70,7 +70,7 @@ npm test
 
 Abrir en navegador:
 
-```text
+```Documentación interactiva disponible en:
 http://localhost:3000/api-docs
 ```
 
@@ -137,7 +137,7 @@ Todas las soluciones fueron comprendidas y aplicadas manualmente.
 ## 📁 Estructura del proyecto
 
 ```bash
-mini-blog-api/
+ProyectoM2_JuanPabloArnez/
 ├── src/
 │ ├── controllers/
 │ │ └── usersController.js
