@@ -1,19 +1,21 @@
 # 📌 MiniBlog API
 
-API REST desarrollada con Node.js, Express y PostgreSQL para gestionar **authors** y **posts**.
+API REST desarrollada con **Node.js**, **Express** y **PostgreSQL** para gestionar **authors** y **posts**.
 
 ---
 
 ## 🚀 Tecnologías
 
-* Node.js
-* Express
-* PostgreSQL
-* pg
-* dotenv
-* OpenAPI (Swagger) + swagger-ui-express + yamljs
-* Jest
-* Supertest
+- Node.js
+- Express
+- PostgreSQL
+- pg
+- dotenv
+- OpenAPI (Swagger)
+- swagger-ui-express
+- yamljs
+- Jest
+- Supertest
 
 ---
 
@@ -22,8 +24,8 @@ API REST desarrollada con Node.js, Express y PostgreSQL para gestionar **authors
 ### 1. Clonar repositorio
 
 ```bash
-git https://github.com/juampxarnez-ctrl/ProyectoM2_JuanPabloArnez.git
-cd mini-blog-api
+git clone https://github.com/juampxarnez-ctrl/ProyectoM2_JuanPabloArnez.git
+cd ProyectoM2_JuanPabloArnez
 ```
 
 ### 2. Instalar dependencias
@@ -37,7 +39,7 @@ npm install
 Crear archivo `.env` en la raíz:
 
 ```env
-DATABASE_URL=postgresql://usuario:password@localhost:5432/miniblog
+DB_URL=postgresql://usuario:password@localhost:5432/miniblog
 ```
 
 ---
@@ -73,6 +75,12 @@ http://localhost:3000/api-docs
 ```
 
 ---
+### 🌐 Deploy
+
+## Aplicación desplegada en Railway:
+
+* API: https://proyectom2juanpabloarnez-production.up.railway.app
+* Swagger: https://proyectom2juanpabloarnez-production.up.railway.app/api-docs
 
 ## 📌 Endpoints
 
