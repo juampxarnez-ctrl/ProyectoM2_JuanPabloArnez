@@ -38,7 +38,7 @@ La solución fue adaptar el proyecto a CommonJS.
 ## 🔴 Problema 2: Base de datos sin tablas
 
 Al consultar la API se obtuvo el siguiente error:
-[error-db](./docs/output-db-error.png)
+![error-db](./docs/output-db-error.png)
 
 Esto ocurrió porque las tablas `authors` y `posts` no existían en PostgreSQL.
 
@@ -49,7 +49,7 @@ Este error fue mio al precipitarme y hacer todo de corrido sin tener en cuenta q
 ```
 Teniendo como exito:
 
-[input](./docs/input-fixed.png)
+![input](./docs/input-fixed.png)
 
 Luego de restaurar la base de datos, la API volvió a responder correctamente.
 
