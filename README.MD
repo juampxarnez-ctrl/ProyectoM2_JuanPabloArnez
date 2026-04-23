@@ -126,20 +126,34 @@ Todas las soluciones fueron comprendidas y aplicadas manualmente.
 ## 📁 Estructura del proyecto
 
 ```bash
-src/
- ├── controllers/
- ├── db/
- ├── errors/
- ├── routes/
- ├── services/
- ├── validators/
- ├── app.js
- ├── db.js
- └── server.js
-
-tests/
-openapi.yaml
-README.md
+mini-blog-api/
+├── src/
+│ ├── controllers/
+│ │ └── usersController.js
+│ ├── db/
+│ │ └── index.js
+│ ├── errors/
+│ │ ├── errorHandler.js
+│ │ └── errors.js
+│ ├── routes/
+│ │ ├── authors.routes.js
+│ │ └── posts.routes.js
+│ ├── services/
+│ │ ├── authors.service.js
+│ │ └── posts.service.js
+│ ├── validators/
+│ │ └── userValidators.js
+│ ├── app.js
+│ ├── db.js
+│ └── server.js
+│
+├── tests/
+│ └── authors.test.js
+│
+├── openapi.yaml
+├── package.json
+├── package-lock.json
+└── README.md
 ```
 
 ---
